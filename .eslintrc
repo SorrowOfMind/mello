@@ -22,13 +22,18 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
     },
-    "plugins": ["react", "@typescript-eslint", "import", "jsx-a11y", "react-hooks", "prettier"],
+    "plugins": ["react", "@typescript-eslint", "import", "jsx-a11y", "react-hooks"],
     "rules": {
         "react/jsx-no-undef": ["error", { "allowGlobals": true }],
-        "no-use-before-define": "on",
+        "no-use-before-define": ["error", {
+          "functions": true,
+          "classes": true,
+          "variables": true,
+          "allowNamedExports": false
+        }],
         "jsx-a11y/anchor-is-valid": "off",
-        "@typescript-eslint/no-explicit-any": "on",
-        "@typescript-eslint/no-non-null-assertion": "on",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-non-null-assertion": "warn",
         "@typescript-eslint/no-unused-vars": [
             "warn",
             {
